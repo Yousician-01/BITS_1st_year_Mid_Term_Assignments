@@ -1,0 +1,337 @@
+{
+  "baseline_rows": 195679,
+  "baseline_invoices": 8426,
+  "countries": 30,
+  "cleaned_rows": 151630,
+  "customers": 2851,
+  "total_spend": 3142538.262,
+  "spend_skew": 19.253112891208662,
+  "log_skew": 0.34153026352271293,
+  "retained": [
+    "RecencyDays",
+    "Frequency",
+    "TotalSpend",
+    "ProductVariety"
+  ],
+  "removed": [],
+  "n_components": 3,
+  "variance": [
+    0.5626022243255897,
+    0.22534540604427075,
+    0.1446042728925402,
+    0.0674480967375995
+  ],
+  "cumulative": [
+    0.5626022243255897,
+    0.7879476303698605,
+    0.9325519032624007,
+    1.0000000000000002
+  ],
+  "sample_ids": [
+    "15603",
+    "12987",
+    "15436",
+    "14514",
+    "16722",
+    "17221",
+    "13169",
+    "17865",
+    "13860",
+    "12691",
+    "13539",
+    "14416",
+    "14495",
+    "14581",
+    "17594",
+    "17668",
+    "15264",
+    "17034",
+    "16012",
+    "16987"
+  ],
+  "quality": [
+    {
+      "index": 0,
+      "Issue": "Missing values",
+      "Field": "CustomerID",
+      "Count": 38564,
+      "Potential impact": "Cannot assign lines reliably to customers"
+    },
+    {
+      "index": 1,
+      "Issue": "Missing values",
+      "Field": "Description",
+      "Count": 278,
+      "Potential impact": "Limits product interpretation; StockCode may still support variety"
+    },
+    {
+      "index": 2,
+      "Issue": "Exact duplicate copies",
+      "Field": "All fields",
+      "Count": 2506,
+      "Potential impact": "May inflate units and spend"
+    },
+    {
+      "index": 3,
+      "Issue": "Cancellation",
+      "Field": "InvoiceNo",
+      "Count": 3081,
+      "Potential impact": "Return/correction activity"
+    },
+    {
+      "index": 4,
+      "Issue": "Quantity <= 0",
+      "Field": "Quantity",
+      "Count": 3462,
+      "Potential impact": "Not positive purchase quantities"
+    },
+    {
+      "index": 5,
+      "Issue": "UnitPrice <= 0",
+      "Field": "UnitPrice",
+      "Count": 664,
+      "Potential impact": "Free, adjustment or invalid-price lines"
+    },
+    {
+      "index": 6,
+      "Issue": "Outer whitespace",
+      "Field": "Description",
+      "Count": 45433,
+      "Potential impact": "Inconsistent description labels"
+    },
+    {
+      "index": 7,
+      "Issue": "Capitalization variants",
+      "Field": "StockCode",
+      "Count": 5228,
+      "Potential impact": "Risk of merging different product identifiers"
+    },
+    {
+      "index": 8,
+      "Issue": "IQR outliers",
+      "Field": "Quantity",
+      "Count": 10471,
+      "Potential impact": "Unusual values; not necessarily errors"
+    },
+    {
+      "index": 9,
+      "Issue": "IQR outliers",
+      "Field": "UnitPrice",
+      "Count": 12151,
+      "Potential impact": "Unusual values; not necessarily errors"
+    }
+  ],
+  "outliers": [
+    {
+      "index": 0,
+      "Field": "Quantity",
+      "Lower fence": -14.0,
+      "Upper fence": 26.0,
+      "Flagged lines": 10471
+    },
+    {
+      "index": 1,
+      "Field": "UnitPrice",
+      "Lower fence": -3.07,
+      "Upper fence": 8.45,
+      "Flagged lines": 12151
+    }
+  ],
+  "cleaning": [
+    {
+      "index": 0,
+      "Decision": "Completed-sales filter",
+      "Rows before": 195679,
+      "Rows after": 191934,
+      "Rows removed": 3745
+    },
+    {
+      "index": 1,
+      "Decision": "Remove unknown CustomerID",
+      "Rows before": 191934,
+      "Rows after": 154113,
+      "Rows removed": 37821
+    },
+    {
+      "index": 2,
+      "Decision": "Remove exact duplicate copies",
+      "Rows before": 154113,
+      "Rows after": 151630,
+      "Rows removed": 2483
+    }
+  ],
+  "financial": [
+    {
+      "index": 0,
+      "Decision": "Completed-sales filter",
+      "Signed GBP excluded": -170917.26000000024
+    },
+    {
+      "index": 1,
+      "Decision": "Remove unknown CustomerID",
+      "Signed GBP excluded": 569091.2500000005
+    },
+    {
+      "index": 2,
+      "Decision": "Remove exact duplicate copies",
+      "Signed GBP excluded": 11436.289999999572
+    }
+  ],
+  "scaling": [
+    {
+      "index": "RecencyDays",
+      "Original mean": 30.884251139950894,
+      "Original population std": 24.185285325237125,
+      "Scaled mean": 2.2430321367383e-17,
+      "Scaled population std": 1.0
+    },
+    {
+      "index": "Frequency",
+      "Original mean": 2.224131883549632,
+      "Original population std": 3.080344660778543,
+      "Scaled mean": 3.98761268753476e-17,
+      "Scaled population std": 1.0
+    },
+    {
+      "index": "TotalSpend",
+      "Original mean": 1102.2582469309016,
+      "Original population std": 4212.0306878896,
+      "Scaled mean": -2.99070951565107e-17,
+      "Scaled population std": 1.0
+    },
+    {
+      "index": "ProductVariety",
+      "Original mean": 42.66327604349351,
+      "Original population std": 58.39057628125704,
+      "Scaled mean": 1.55766120606827e-17,
+      "Scaled population std": 1.0
+    }
+  ],
+  "bins": [
+    {
+      "RecencyBand": "Recent (1-30 days)",
+      "Customers": 1664,
+      "MedianSpend": 648.405
+    },
+    {
+      "RecencyBand": "Warm (31-60 days)",
+      "Customers": 742,
+      "MedianSpend": 394.77
+    },
+    {
+      "RecencyBand": "Lapsed (61-91 days)",
+      "Customers": 445,
+      "MedianSpend": 336.14
+    }
+  ],
+  "spend_stats": [
+    {
+      "index": "count",
+      "Original spend": 2851.0,
+      "Log1p spend": 2851.0
+    },
+    {
+      "index": "mean",
+      "Original spend": 1102.2582469309016,
+      "Log1p spend": 6.246768583138294
+    },
+    {
+      "index": "std",
+      "Original spend": 4212.769575832814,
+      "Log1p spend": 1.060972442871105
+    },
+    {
+      "index": "min",
+      "Original spend": 3.35,
+      "Log1p spend": 1.470175845100593
+    },
+    {
+      "index": "25%",
+      "Original spend": 262.185,
+      "Log1p spend": 5.572857205321496
+    },
+    {
+      "index": "50%",
+      "Original spend": 491.20000000000005,
+      "Log1p spend": 6.198885137956956
+    },
+    {
+      "index": "75%",
+      "Original spend": 995.905,
+      "Log1p spend": 6.90465545178006
+    },
+    {
+      "index": "max",
+      "Original spend": 117634.53,
+      "Log1p spend": 11.67534639466618
+    }
+  ],
+  "nearest": [
+    {
+      "index": 0,
+      "Metric": "Euclidean",
+      "Customer A": "14514",
+      "Customer B": "15264",
+      "Distance": 0.167488999297053
+    },
+    {
+      "index": 1,
+      "Metric": "Manhattan",
+      "Customer A": "17221",
+      "Customer B": "16012",
+      "Distance": 0.248431542964453
+    }
+  ],
+  "pair_original": [
+    {
+      "CustomerID": "14514",
+      "RecencyDays": 53,
+      "Frequency": 1,
+      "TotalSpend": 587.09,
+      "ProductVariety": 29
+    },
+    {
+      "CustomerID": "17221",
+      "RecencyDays": 28,
+      "Frequency": 1,
+      "TotalSpend": 132.28,
+      "ProductVariety": 30
+    },
+    {
+      "CustomerID": "15264",
+      "RecencyDays": 56,
+      "Frequency": 1,
+      "TotalSpend": 393.74,
+      "ProductVariety": 23
+    },
+    {
+      "CustomerID": "16012",
+      "RecencyDays": 27,
+      "Frequency": 1,
+      "TotalSpend": 283.17,
+      "ProductVariety": 40
+    }
+  ],
+  "comparison": [
+    {
+      "index": 0,
+      "Reduction method": "Correlation removal",
+      "Rows before": 2851,
+      "Features before": 4,
+      "Rows after": 2851,
+      "Features after": 4,
+      "Information retained": "Original meaning of RecencyDays, Frequency, TotalSpend, ProductVariety",
+      "Information lost": "No columns removed; no dimensional reduction"
+    },
+    {
+      "index": 1,
+      "Reduction method": "PCA",
+      "Rows before": 2851,
+      "Features before": 4,
+      "Rows after": 2851,
+      "Features after": 3,
+      "Information retained": "93.2552% of standardized variance",
+      "Information lost": "6.7448% variance and direct business-unit interpretation"
+    }
+  ]
+}

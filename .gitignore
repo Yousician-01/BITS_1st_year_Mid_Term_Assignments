@@ -1,0 +1,4 @@
+.venv
+.assignment*
+
+__pycache__/
