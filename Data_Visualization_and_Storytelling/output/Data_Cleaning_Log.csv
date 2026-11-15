@@ -1,0 +1,12 @@
+Issue,Field,Records affected,Action taken,Justification,Validation outcome
+Exact duplicate copies,Annual transactions,6,Removed extra copies; retained first,Guide identifies Order_ID as a unique transaction,Order_ID unique after cleaning
+Category spelling/aliases,Product_Master.Category,3,"Mapped Tech, Office Suply and Office Suppllies to documented categories",Genuine aliases of supplied business categories,Exactly three normalized categories
+Outer category whitespace,Product_Master.Category,0,Trimmed outer whitespace,Formatting does not define a new category,No outer category whitespace remains
+Missing required transaction values,Transaction fields,0,No records removed,No missing inputs to required measures,All required fields present
+Unmatched master keys,Product_ID / Customer_ID,0,Retained all matched transactions; no attributes invented,No unmatched keys found,Both joins preserve row counts
+Invalid dates or source-year mismatch,Order_Date,0,Parsed dates; no records removed,Scope must agree with source year,All dates valid and agree with source year
+Invalid numeric values,"Quantity, prices, discount, shipping",0,No correction or removal needed,Positive quantities/prices; discounts 0-1; nonnegative shipping,All numeric validity assertions pass
+IQR statistical extremes,Quantity,67,Retained without capping,Unusual but valid values are not necessarily errors,No extra rows removed
+IQR statistical extremes,Unit_Price,103,Retained without capping,Unusual but valid values are not necessarily errors,No extra rows removed
+IQR statistical extremes,Shipping_Cost,83,Retained without capping,Unusual but valid values are not necessarily errors,No extra rows removed
+Negative calculated profit,Profit,108,Retained losses,A valid transaction may lose money,Losses remain visible in all summaries
